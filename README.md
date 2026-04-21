@@ -1,1 +1,2 @@
 # Strikava-Backend
+backend setup
