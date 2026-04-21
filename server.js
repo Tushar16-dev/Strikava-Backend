@@ -20,6 +20,20 @@ app.use(express.json());
 // Connect DB
 connectDB();
 
+app.get('/ping', (req, res) => {
+    res.set({
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+    });
+    
+    res.status(200).json({
+        status: 'ok',
+        service: 'StaySphere',
+        timestamp: new Date().toISOString()
+    });
+});
+
 app.use("/inquiry", inquiryRoutes);
 
 
