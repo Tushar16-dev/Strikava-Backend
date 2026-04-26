@@ -13,13 +13,14 @@ const inquirySchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
-    phone: {
+    mobile: {
       type: String,
-      trim: true,
+      required: true,
+      match: [/^[0-9]{10}$/, "Mobile must be 10 digits"],
     },
-    program: {
+    course: {
       type: String,
-      enum: ["cloud", "aws", "cyber", "devops"], 
+      enum: ["cloud", "aws", "cyber", "devops"],
     },
     message: {
       type: String,
@@ -28,7 +29,8 @@ const inquirySchema = new mongoose.Schema(
     },
     type: {
       type: String,
-      default: "contact",
+      enum: ["contact", "consultation"],
+      required: true,
     },
   },
   { timestamps: true }
