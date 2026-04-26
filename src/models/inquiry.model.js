@@ -30,7 +30,6 @@ const inquirySchema = new mongoose.Schema(
     type: {
       type: String,
       enum: ["contact", "consultation"],
-      required: true,
     },
   },
   { timestamps: true }
