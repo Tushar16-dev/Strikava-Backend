@@ -5,17 +5,30 @@ const inquirySchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
+      trim: true,
     },
-    email: String,
-    mobile: {
+    email: {
       type: String,
       required: true,
+      trim: true,
+      lowercase: true,
     },
-    message: String,
-    course: String,
+    phone: {
+      type: String,
+      trim: true,
+    },
+    program: {
+      type: String,
+      enum: ["cloud", "aws", "cyber", "devops"], 
+    },
+    message: {
+      type: String,
+      required: true,
+      trim: true,
+    },
     type: {
       type: String,
-      enum: ["contact", "consultation"],
+      default: "contact",
     },
   },
   { timestamps: true }
